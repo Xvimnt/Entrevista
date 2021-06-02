@@ -12,14 +12,16 @@
   <header id="masthead">
     <div class="container">
       <div class="row navbar navbar-expand-lg navbar-light bg-light">
-        <div class="col-md-6 ">
-          <a href="index.html" id="logo">Your Name</a>
+        <div class="col-md-3 bg-info">
+          <a href="index.html" id="logo" class="h1 text-light">Your Name</a>
         </div>
         <div class="col-md-6">
-          <nav>
-            <a href="index.html">About</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
+        </div>
+        <div class="col-md-3">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">About</a>
+            <a class="navbar-brand" href="portfolio.html">Portfolio</a>
+            <a class="navbar-brand" href="contact.html">Contact</a>
           </nav>
         </div>
       </div>
@@ -27,15 +29,22 @@
   </header>
 
   <div id="main-container" class="container">
-    <section class="main-section">
-      <h1>About Me</h1>
+    <section class="main-section card">
+      <h1 class="text-info">About Me</h1>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="assets/images/cat.jpg" class="auth-image img-thumbnail" alt="Your Name">
+        </div>
+        <div class="col-md-9">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum luctus felis, ac rhoncus nunc
+            porttitor condimentum. Mauris sit amet dolor eu elit varius varius facilisis id arcu. Proin vel dui massa.
+            Nunc
+            rhoncus fringilla pharetra. Vestibulum bibendum consectetur euismod. Proin commodo purus vitae sollicitudin
+            consectetur.</p>
+        </div>
+      </div>
 
-      <img src="assets/images/cat.jpg" class="auth-image" alt="Your Name">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum luctus felis, ac rhoncus nunc
-        porttitor condimentum. Mauris sit amet dolor eu elit varius varius facilisis id arcu. Proin vel dui massa. Nunc
-        rhoncus fringilla pharetra. Vestibulum bibendum consectetur euismod. Proin commodo purus vitae sollicitudin
-        consectetur.</p>
 
       <p>Donec vehicula lacus at leo feugiat lacinia. In et ex ultrices, ultrices neque non, pretium odio. Nunc id eros
         iaculis, pulvinar quam eget, egestas mauris.</p>
@@ -47,7 +56,7 @@
 
   </div>
 
-  <footer>
+  <footer class="text-center text-lg-start bg-light text-muted">
     <div class="container">
       Copyright &copy;
     </div>
