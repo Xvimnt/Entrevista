@@ -1,4 +1,5 @@
 <?php
+// Headers
 ob_start();
 header("Cache-control: private, no-cache");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -7,11 +8,15 @@ header("Cache: no-cahce");
 ini_set('max_execution_time', 90000);
 ini_set("memory_limit", -1);
 
+// Search parameters that comes inside the url
 $page = $_REQUEST["page"];
 $pagesize = $_REQUEST["pagesize"];
 $query = $_REQUEST["query"];
 
+// if we have all the neccesaries parameters
 if ($page && $pagesize && $query) {
+   // Cache the response
+   include('top-cache.php'); 
    // API URL
    $url = 'https://api.stackexchange.com/2.3/search?page=' . $page . '&pagesize=' . $pagesize . '&intitle=' . $query . '&site=stackoverflow';
 
@@ -40,15 +45,22 @@ if ($page && $pagesize && $query) {
    $response = json_decode($response);
    $response_arr = [];
    foreach ($response->items as $item) {
+
+      // Json object for each item in the search
       $object = array(
          "title" => $item->title,
          "answer_count" => $item->answer_count,
          "username" => $item->owner->display_name,
-         "pp_url" => $item->owner->profile_image
+         "profile_picture_url" => $item->owner->profile_image ?? ""
       );
       array_push($response_arr, $object);
    }
+   
+
    echo json_encode($response_arr);
+
+   // Cache the response
+   include('bottom-cache.php');
 } else {
    $response_arr = array(
       "status" => false,
